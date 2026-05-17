@@ -52,3 +52,14 @@ list.h:20:26: note: expected ‘List *’ but argument is of type ‘int *’
       |                    ~~~~~~^
 cc1: all warnings being treated as errors
 929d70c
+Sun May 17 05:16:01 PM UTC 2026: 
+ graph.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘addEdge’:
+graph.c:52:28: error: ‘next’ undeclared (first use in this function)
+   52 |     list_pushBack(adjlist, next);
+      |                            ^~~~
+graph.c:52:28: note: each undeclared identifier is reported only once for each function it appears in
+865371d
