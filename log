@@ -170,3 +170,21 @@ graph.c:21:39: note: expected ‘void *’ but argument is of type ‘const char
       |                                 ~~~~~~^~~~
 cc1: all warnings being treated as errors
 a12c466
+Sun May 17 06:12:21 PM UTC 2026: 
+ graph.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘getWeight’:
+graph.c:67:18: error: implicit declaration of function ‘first_list’ [-Wimplicit-function-declaration]
+   67 |     Edge* edge = first_list(edges);
+      |                  ^~~~~~~~~~
+graph.c:67:18: error: initialization of ‘Edge *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+graph.c:70:46: error: passing argument 2 of ‘is_equal_string’ discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
+   70 |             if(is_equal_string(edge->target, label2)) return edge->weight;
+      |                                              ^~~~~~
+graph.c:21:39: note: expected ‘void *’ but argument is of type ‘const char *’
+   21 | int is_equal_string(void *key1, void *key2) {
+      |                                 ~~~~~~^~~~
+cc1: all warnings being treated as errors
+231896b

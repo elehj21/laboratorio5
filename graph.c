@@ -62,7 +62,7 @@ List* getEdges(Graph* g, const char* label) {
 
 int getWeight(Graph* g, const char* label1, const char* label2) {
     if (!g || !label1 || !label2) return -1;
-    List* edges = getEdges(label1);
+    List* edges = getEdges(g, label1);
     if(edges == NULL) return -1;
     Edge* edge = first_list(edges);
     while(edge != NULL)
