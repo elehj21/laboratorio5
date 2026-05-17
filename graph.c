@@ -49,8 +49,9 @@ void addEdge(Graph* g, const char* src, const char* dest, int weight) {
     if(pair == NULL) return;
     List* adjlist = (List*) pair -> value;
     Edge* aux = (Edge*)malloc(sizeof(Edge));
+    if(aux == NULL) return NULL;
     aux->weight = weight;
-    aux->target = (char*)dest;
+    aux->target = strdup(dest);
     list_pushBack(adjlist, aux);
 
 }
@@ -69,7 +70,7 @@ int getWeight(Graph* g, const char* label1, const char* label2) {
     Edge* edge = list_first(edges);
     while(edge != NULL)
         {
-            if(is_equal_string(edge->target, (void*)label2)) return edge->weight;
+            if(is_equal_string(edge->target, label2)) return edge->weight;
             edge = list_next(edges);
         }
     // Si no existe el origen o terminamos de iterar sin encontrar el destino
