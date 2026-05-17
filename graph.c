@@ -49,7 +49,7 @@ void addEdge(Graph* g, const char* src, const char* dest, int weight) {
     if(pair == NULL) return;
     List* adjlist = (List*) pair -> value;
     Edge* aux = (Edge*)malloc(sizeof(Edge));
-    if(aux == NULL) return NULL;
+    if(aux == NULL) return;
     aux->weight = weight;
     aux->target = strdup(dest);
     list_pushBack(adjlist, aux);
