@@ -72,9 +72,9 @@ List* getAdjacentLabels(Graph* g, const char* label) {
     MapPair* nodo = map_search(g->adjacencyMap, (void*)label);
     if(nodo == NULL)return NULL;
     List* labels = list_create();
-    for(Edge*label = list_first(nodo->valor); label!= NULL; label =listNext(nodo->valor))
+    for(Edge*label = list_first(nodo->value); label!= NULL; label =list_next(nodo->value))
         {
-            list_pushBack(labels, label->key);
+            list_pushBack(labels, label->target);
         }
 
     return labels;; 
