@@ -70,7 +70,7 @@ int getWeight(Graph* g, const char* label1, const char* label2) {
     Edge* edge = list_first(edges);
     while(edge != NULL)
         {
-            if(is_equal_string(edge->target, label2)) return edge->weight;
+            if(is_equal_string(edge->target, (void*)label2)) return edge->weight;
             edge = list_next(edges);
         }
     // Si no existe el origen o terminamos de iterar sin encontrar el destino
