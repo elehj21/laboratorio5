@@ -95,3 +95,23 @@ graph.c:77:40: error: ‘Edge’ has no member named ‘key’
    77 |             list_pushBack(labels, label->key);
       |                                        ^~
 ec52214
+Sun May 17 05:31:13 PM UTC 2026: 
+ graph.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘getAdjacentLabels’:
+graph.c:75:37: error: ‘MapPair’ has no member named ‘valor’
+   75 |     for(Edge*label = list_first(nodo->valor); label!= NULL; label =listNext(nodo->valor))
+      |                                     ^~
+graph.c:75:68: error: implicit declaration of function ‘listNext’; did you mean ‘list_next’? [-Wimplicit-function-declaration]
+   75 |     for(Edge*label = list_first(nodo->valor); label!= NULL; label =listNext(nodo->valor))
+      |                                                                    ^~~~~~~~
+      |                                                                    list_next
+graph.c:75:81: error: ‘MapPair’ has no member named ‘valor’
+   75 |     for(Edge*label = list_first(nodo->valor); label!= NULL; label =listNext(nodo->valor))
+      |                                                                                 ^~
+graph.c:77:40: error: ‘Edge’ has no member named ‘key’
+   77 |             list_pushBack(labels, label->key);
+      |                                        ^~
+87a7167
