@@ -11,3 +11,44 @@ Sun May 17 04:49:58 PM UTC 2026:
  1 file changed, 4 insertions(+), 1 deletion(-)
  tests:  0|0
 c35ddaa
+Sun May 17 05:13:44 PM UTC 2026: 
+ graph.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘addNode’:
+graph.c:38:36: error: passing argument 2 of ‘map_search’ discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
+   38 |     if(map_search(g->adjacencyMap, label) != NULL)return;
+      |                                    ^~~~~
+In file included from graph.c:8:
+map.h:22:37: note: expected ‘void *’ but argument is of type ‘const char *’
+   22 | MapPair *map_search(Map *map, void *key);
+      |                               ~~~~~~^~~
+graph.c: In function ‘addEdge’:
+graph.c:46:56: error: ‘scr’ undeclared (first use in this function); did you mean ‘src’?
+   46 |     MapPair* pair = map_search(g->adjacencyMap, (void*)scr);
+      |                                                        ^~~
+      |                                                        src
+graph.c:46:56: note: each undeclared identifier is reported only once for each function it appears in
+graph.c:48:5: error: unknown type name ‘list’; did you mean ‘List’?
+   48 |     list* adjlist = (List*) pair -> value;
+      |     ^~~~
+      |     List
+graph.c:48:21: error: initialization of ‘int *’ from incompatible pointer type ‘List *’ [-Wincompatible-pointer-types]
+   48 |     list* adjlist = (List*) pair -> value;
+      |                     ^
+graph.c:52:28: error: ‘next’ undeclared (first use in this function)
+   52 |     list_pushBack(adjlist, next);
+      |                            ^~~~
+graph.c:52:19: error: passing argument 1 of ‘list_pushBack’ from incompatible pointer type [-Wincompatible-pointer-types]
+   52 |     list_pushBack(adjlist, next);
+      |                   ^~~~~~~
+      |                   |
+      |                   int *
+In file included from graph.h:4,
+                 from graph.c:6:
+list.h:20:26: note: expected ‘List *’ but argument is of type ‘int *’
+   20 | void list_pushBack(List *L, void *dato);
+      |                    ~~~~~~^
+cc1: all warnings being treated as errors
+929d70c
