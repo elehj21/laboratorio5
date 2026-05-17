@@ -138,3 +138,35 @@ Sun May 17 05:38:04 PM UTC 2026:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 0837135
+Sun May 17 06:11:46 PM UTC 2026: 
+ graph.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘getWeight’:
+graph.c:65:28: error: passing argument 1 of ‘getEdges’ from incompatible pointer type [-Wincompatible-pointer-types]
+   65 |     List* edges = getEdges(label1);
+      |                            ^~~~~~
+      |                            |
+      |                            const char *
+graph.c:56:23: note: expected ‘Graph *’ but argument is of type ‘const char *’
+   56 | List* getEdges(Graph* g, const char* label) {
+      |                ~~~~~~~^
+graph.c:65:19: error: too few arguments to function ‘getEdges’
+   65 |     List* edges = getEdges(label1);
+      |                   ^~~~~~~~
+graph.c:56:7: note: declared here
+   56 | List* getEdges(Graph* g, const char* label) {
+      |       ^~~~~~~~
+graph.c:67:18: error: implicit declaration of function ‘first_list’ [-Wimplicit-function-declaration]
+   67 |     Edge* edge = first_list(edges);
+      |                  ^~~~~~~~~~
+graph.c:67:18: error: initialization of ‘Edge *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+graph.c:70:46: error: passing argument 2 of ‘is_equal_string’ discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
+   70 |             if(is_equal_string(edge->target, label2)) return edge->weight;
+      |                                              ^~~~~~
+graph.c:21:39: note: expected ‘void *’ but argument is of type ‘const char *’
+   21 | int is_equal_string(void *key1, void *key2) {
+      |                                 ~~~~~~^~~~
+cc1: all warnings being treated as errors
+a12c466
